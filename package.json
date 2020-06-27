@@ -1,0 +1,19 @@
+{
+  "name": "@biovision/comunit",
+  "version": "0.0.1",
+  "description": "JS part for comunit-based sites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Biovision/npm-comunit.git"
+  },
+  "author": "Maxim Khan-Magomedov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Biovision/npm-comunit/issues"
+  },
+  "homepage": "https://github.com/Biovision/npm-comunit#readme"
+}
