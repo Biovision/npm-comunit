@@ -1,8 +1,14 @@
 {
   "name": "@biovision/comunit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JS part for comunit-based sites",
   "main": "index.js",
+  "dependencies": {
+    "@biovision/biovision": "^0.0.2",
+    "@biovision/comments": "^0.0.1",
+    "@biovision/posts": "^0.0.1",
+    "@biovision/votes": "^0.0.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
