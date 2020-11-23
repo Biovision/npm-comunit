@@ -1,4 +1,4 @@
-"use strict";
+import AdminTaxonLoader from "./components/admin_taxon_loader";
 
 const Comunit = {
     initialized: false,
@@ -194,64 +194,7 @@ Comunit.components.regionLinkCreator = {
     }
 };
 
-Comunit.components.adminTaxonLoader = {
-    selector: ".js-taxon-loader",
-    buttons: [],
-    init: function () {
-        document.querySelectorAll(this.selector).forEach(this.apply);
-    },
-    apply: function (button) {
-        const component = Comunit.components.adminTaxonLoader;
-        component.buttons.push(button);
-        button.addEventListener("click", component.handleClick);
-    },
-    handleClick: function (event) {
-        const component = Comunit.components.adminTaxonLoader;
-        const button = event.target;
-        const container = button.closest("li");
-        const url = button.dataset.url;
-        const request = Biovision.jsonAjaxRequest("get", url, function () {
-            const response = JSON.parse(this.responseText);
-            if (response.hasOwnProperty("data")) {
-                const ul = document.createElement("ul");
-                container.append(ul);
-                response.data.forEach(function (data) {
-                    const li = document.createElement("li");
-                    component.loadTaxa(li, data);
-                    ul.append(li);
-                });
-            }
-        });
-        button.disabled = true;
-        request.send();
-        button.remove();
-    },
-    loadTaxa: function (container, data) {
-        const component = Comunit.components.adminTaxonLoader;
-        const element_id = `user_taxon_${data.id}`
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.id = element_id;
-        checkbox.dataset.url = data.links.user;
-        checkbox.checked = data.meta.user_linked;
-        Biovision.components.entityLinker.apply(checkbox);
-        container.append(checkbox);
-
-        const label = document.createElement("label");
-        label.htmlFor = element_id;
-        label.innerHTML = data.attributes.name;
-        container.append(label);
-
-        if (data.attributes.children_cache.length > 0) {
-            const button = document.createElement("button");
-            button.dataset.url = data.links.children;
-            button.innerHTML = "+";
-            button.type = "button";
-            component.apply(button);
-            container.append(button);
-        }
-    }
-}
+Comunit.components.adminTaxonLoader = AdminTaxonLoader;
 
 window.Comunit = Comunit;
 

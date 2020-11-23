@@ -1,10 +1,10 @@
 {
   "name": "@biovision/comunit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JS part for comunit-based sites",
   "main": "index.js",
   "dependencies": {
-    "@biovision/biovision": "^0.0.2",
+    "@biovision/biovision": "^0.0.3",
     "@biovision/comments": "^0.0.1",
     "@biovision/posts": "^0.0.1",
     "@biovision/votes": "^0.0.1"
